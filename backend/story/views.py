@@ -17,11 +17,21 @@ def home(request):
 
 def getOne(requests, story_id):
     # stid = requests.GET['story_id']
-    sele_story = Story.objects.filter(id=story_id)
-    data = serializers.serialize('json', sele_story)
+    thisStory = Story.objects.filter(id=story_id)
+    data = serializers.serialize('json', thisStory)
     return HttpResponse(data, content_type='application/json')
     
 def getRatings(requests, story_id):
-    sele_story = Story.objects.filter(id=story_id).values('rating') #.only('rating')
-    return JsonResponse({'results':list(sele_story)})
-    
+    thisStory = Story.objects.filter(id=story_id).values('rating') #.only('rating')
+    return JsonResponse({'results':list(thisStory)})
+
+def updateRatings(requests, story_id, rate):
+    thisStory = Story.objects.get(id=story_id)
+    thisStory.rating=rate
+    thisStory.save()
+    return JsonResponse({'code':1})
+
+def updateTest(requests, data):
+    if requests.method=='POST':
+        print(data)
+        return JsonResponse({'code':1, 'data':data})

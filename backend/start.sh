@@ -1,3 +1,3 @@
 #!/bin/bash
-echo 'starting server\t[OK]'
+echo 'starting server.......[OK]'
 python3 manage.py runserver
