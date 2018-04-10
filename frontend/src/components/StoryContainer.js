@@ -47,7 +47,7 @@ export default class StoryContainer extends Component {
 
   updateStoryRatings = (data) => {
     console.log(data);
-    StoryAdapter.update(this.state.currentSceneId, this.state.data.rating)
+    StoryAdapter.update(this.state.currentSceneId, data.rating)
       .then(json => {
                       let index = this.getSceneIndex(json.pk)
                       this.setState({

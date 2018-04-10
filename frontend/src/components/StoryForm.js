@@ -27,7 +27,6 @@ export default class storyForm extends Component {
       [event.target.name]: event.target.value
     })
     // console.log(this.state)
-    
   }
 
   handleBlur = () => {
@@ -36,9 +35,18 @@ export default class storyForm extends Component {
       content: this.state.content,
       rating:this.state.rating
     }
-    console.warn(data.story);
-    this.props.updateStoryRatings(data)
+    console.log(data.story);
+    this.props.updateStoryRatings(data.story)
   }
+
+  // loadStat = (e) => {
+  //   e.preventDefault();
+  //   window.location.assign('./stat.js');
+  // }
+
+  // handleClick = () => {
+  //   this.loadStat();
+  // }
 
   render() {
     return (
@@ -49,6 +57,7 @@ export default class storyForm extends Component {
         <form onBlur={this.handleBlur}>
           <input className='input' type='text' name='rating' placeholder='Enter ratings for story...'  onChange={this.handleInput} />
           <br />
+          <button onClick={this.handleClick}>update</button>
         </form>
 
       </div>

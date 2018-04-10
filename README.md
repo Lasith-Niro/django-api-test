@@ -3,4 +3,6 @@ A simple REST web application using Django Rest Framework or Flask framework whe
 
 ## Instruction
 * install requirements by running `pip install -r requirements.txt`
-* ./start.sh to start the back-end server.
+* goto `backend` directory and run **./start.sh** to start the back-end server.(Django)
+* goto `frontend` directory and run **yarn install**
+* Then run **yarn start** to up the frontend app.(React.js)
